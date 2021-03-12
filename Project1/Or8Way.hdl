@@ -1,0 +1,54 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Or8Way.hdl
+
+/**
+ * 8-way Or: 
+ * out = (in[0] or in[1] or ... or in[7])
+ */
+
+CHIP Or8Way {
+    IN in[8];
+    OUT out;
+
+    PARTS:
+
+    Or(a=in[0], b=in[1], out=x1);
+    Or(a=x1, b=in[2], out=x2);
+    Or(a=x2, b=in[3], out=x3);
+    Or(a=x3, b=in[4], out=x4);
+    Or(a=x4, b=in[5], out=x5);
+    Or(a=x5, b=in[6], out=x6);
+    Or(a=x6, b=in[7], out=out);
+
+    /*Purely NAND
+    Nand(a=in[0], b=in[0], out=x1);
+    Nand(a=in[1], b=in[1], out=y1);
+    Nand(a=x1, b=y1, out=z1);
+
+    Nand(a=in[2], b=in[2], out=x2);
+    Nand(a=z1, b=z1, out=y2);
+    Nand(a=x2, b=y2, out=z2);
+
+    Nand(a=in[3], b=in[3], out=x3);
+    Nand(a=z2, b=z2, out=y3);
+    Nand(a=x3, b=y3, out=z3);
+
+    Nand(a=in[4], b=in[4], out=x4);
+    Nand(a=z3, b=z3, out=y4);
+    Nand(a=x4, b=y4, out=z4);
+
+    Nand(a=in[5], b=in[5], out=x5);
+    Nand(a=z4, b=z4, out=y5);
+    Nand(a=x5, b=y5, out=z5);
+
+    Nand(a=in[6], b=in[3], out=x6);
+    Nand(a=z5, b=z5, out=y6);
+    Nand(a=x6, b=y6, out=z6);
+
+    Nand(a=in[7], b=in[3], out=x7);
+    Nand(a=z6, b=z6, out=y7);
+    Nand(a=x7, b=y7, out=out);
+    */
+}

@@ -1,0 +1,86 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/DMux8Way.hdl
+
+/**
+ * 8-way demultiplexor:
+ * {a, b, c, d, e, f, g, h} = {in, 0, 0, 0, 0, 0, 0, 0} if sel == 000
+ *                            {0, in, 0, 0, 0, 0, 0, 0} if sel == 001
+ *                            etc.
+ *                            {0, 0, 0, 0, 0, 0, 0, in} if sel == 111
+ */
+
+CHIP DMux8Way {
+    IN in, sel[3];
+    OUT a, b, c, d, e, f, g, h;
+
+    PARTS:
+
+    DMux(in=in, sel=sel[2], a=x, b=y);
+    DMux4Way(in=x, sel=sel[0..1], a=a, b=b, c=c, d=d);
+    DMux4Way(in=y, sel=sel[0..1], a=e, b=f, c=g, d=h);
+
+    /*Purely NAND
+    Nand(a=sel[2], b=sel[2], out=A);
+    Nand(a=sel[1], b=sel[1], out=B);
+    Nand(a=sel[0], b=sel[0], out=C);
+
+    Nand(a=A, b=B, out=x1);
+    Nand(a=x1, b=x1, out=x1Comp);
+    Nand(a=x1Comp, b=C, out=x2);
+    Nand(a=x2, b=x2, out=x2Comp);
+    Nand(a=in, b=x2Comp, out=x3);
+    Nand(a=x3, b=x3, out=a);
+
+    Nand(a=A, b=B, out=x4);
+    Nand(a=x4, b=x4, out=x4Comp);
+    Nand(a=x4Comp, b=sel[0], out=x5);
+    Nand(a=x5, b=x5, out=x5Comp);
+    Nand(a=in, b=x5Comp, out=x6);
+    Nand(a=x6, b=x6, out=b);
+
+    Nand(a=A, b=sel[1], out=x7);
+    Nand(a=x7, b=x7, out=x7Comp);
+    Nand(a=x7Comp, b=C, out=x71);
+    Nand(a=x71, b= x71, out=x71Comp);
+    Nand(a=in, b=x71Comp, out=x8);
+    Nand(a=x8, b=x8, out=c);
+
+    Nand(a=A, b=sel[1], out=x9);
+    Nand(a=x9, b=x9, out=x9Comp);
+    Nand(a=x9Comp, b=sel[0], out=x10);
+    Nand(a=x10, b=x10, out=x10Comp);
+    Nand(a=in, b=x10Comp, out=x11);
+    Nand(a=x11, b=x11, out=d);
+
+    Nand(a=sel[2], b=B, out=x12);
+    Nand(a=x12, b=x12, out=x12Comp);
+    Nand(a=x12Comp, b=C, out=x13);
+    Nand(a=x13, b=x13, out=x13Comp);
+    Nand(a=in, b=x13Comp, out=x14);
+    Nand(a=x14, b=x14, out=e);
+
+    Nand(a=sel[2], b=B, out=x15);
+    Nand(a=x15, b=x15, out=x15Comp);
+    Nand(a=x15Comp, b=sel[0], out=x16);
+    Nand(a=x16, b=x16, out=x16Comp);
+    Nand(a=in, b=x16Comp, out=x17);
+    Nand(a=x17, b=x17, out=f);
+
+    Nand(a=sel[2], b=sel[1], out=x18);
+    Nand(a=x18, b=x18, out=x18Comp);
+    Nand(a=x18Comp, b=C, out=x19);
+    Nand(a=x19, b=x19, out=x19Comp);
+    Nand(a=in, b=x19Comp, out=x20);
+    Nand(a=x20, b=x20, out=g);
+
+    Nand(a=sel[2], b=sel[1], out=x21);
+    Nand(a=x21, b=x21, out=x21Comp);
+    Nand(a=x21Comp, b=sel[0], out=x22);
+    Nand(a=x22, b=x22, out=x22Comp);
+    Nand(a=in, b=x22Comp, out=x23);
+    Nand(a=x23, b=x23, out=h);
+    */
+    
+}
