@@ -17,13 +17,10 @@ CHIP PC {
 
     PARTS:
     
-    Not16(in=in, out=x);
-    Add16(a=x, b=in, out=added);
-    Not16(in=added, out=fullzeros);
     Inc16(in=outf, out=incremented);
 
     Mux16(a=x3, b=in, sel=load, out=x1);
-    Mux16(a=x1, b=fullzeros, sel=reset, out=x2);
+    Mux16(a=x1, b=false, sel=reset, out=x2);
     Mux16(a=outf, b=incremented, sel=inc, out=x3);
     Register(in=x2, load=true, out=out, out=outf);
 }
