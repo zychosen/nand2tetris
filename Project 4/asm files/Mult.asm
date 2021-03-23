@@ -37,9 +37,9 @@ M=D
 
 	// Load previous R2 result
 	@R2
-    D=M
+    	D=M
 
-    // Add previous result to R1 value
+    	// Add previous result to R1 value
 	@R1
 	D=D+M
 
