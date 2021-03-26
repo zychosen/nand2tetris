@@ -42,8 +42,8 @@ M=0
 	@LOOP2			// Jump to LOOP2 if keyboard input is valid
 	D;JNE
 
-	@LOOP           // Infinite loop, listens to keyboard input and resets register and temp
-	0;JMP           // addresses for rewrite
+	@LOOP           // Infinite loop, listens to keyboard input and resets register and temp addresses for rewrite
+	0;JMP           
 
 (LOOP1)	
 	(ToZero)
@@ -55,8 +55,8 @@ M=0
 		@n
 		D=M
 
-		@ToZero        // If all registers are full, continue with same contents and check for
-		D;JEQ          // keyboard input changes
+		@ToZero        // If all registers are full, continue with same contents and check for keyboard input changes
+		D;JEQ          
 
 		@n
 		M=M-1
