@@ -10,13 +10,12 @@ def handle(fileObj, saveFile, labels):
 		y = re.search("[()]", line)
 
 		if x[0].strip():	               # if line isn't empty
-			if x[0].endswith('\n'):
-				f1,f2,f3 = Parser.parser(x[0])
-				if f1 == f2 == f3 == "1":
-					continue
-				else:
-					saveFile.write(Decoder.decoder(f1,f2,f3,labels))
-					saveFile.write("\n")
+			f1,f2,f3 = Parser.parser(x[0])
+			if f1 == f2 == f3 == "1":
+				continue
+			else:
+				saveFile.write(Decoder.decoder(f1,f2,f3,labels))
+				saveFile.write("\n")
 
 		else:
 			continue
