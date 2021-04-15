@@ -10,5 +10,5 @@ This is the implementation of a computer starting from NAND gates as part of the
    * Project 6: Assembler (Assembly to machine code (binary))
 
 ### Software hierarchy
-   * Project 7: VM-1: Stack Arithmetic (VM translator)
-   * Project 8: VM-2: Program Control (VM translator) 
+   * Project 7: VM-1: Virtual Machine implementation (Stack Arithmetic translator)
+   * Project 8: VM-2: Virtual Machine implementation (Full VM translator) 
